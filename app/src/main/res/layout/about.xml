@@ -1,16 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                              android:layout_height="match_parent">
 
     <TextView
             android:text="Nombre: Ivan Antonio Ibarra Cantu"
             android:layout_width="238dp"
-            android:layout_height="30dp" tools:layout_editor_absoluteY="79dp"
-            tools:layout_editor_absoluteX="72dp" android:id="@+id/txtNombre"/>
+            android:layout_height="42dp"
+            android:id="@+id/txtNombre" android:layout_marginTop="44dp"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"/>
     <TextView
             android:text="Matricula: 3780"
-            android:layout_width="wrap_content"
-            android:layout_height="19dp" tools:layout_editor_absoluteY="142dp"
-            tools:layout_editor_absoluteX="143dp" android:id="@+id/strMatricula"/>
+            android:layout_width="142dp"
+            android:layout_height="36dp"
+            android:id="@+id/strMatricula" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/txtNombre"/>
+    <TextView
+            android:text="Repositorio: https://github.com/ivanmalilla36/android_tercerParcial"
+            android:layout_width="295dp"
+            android:layout_height="36dp"
+            android:id="@+id/textView6" app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/strMatricula" app:layout_constraintHorizontal_bias="0.506"/>
+    <Button
+            android:text="Repositorio"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnRepo" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="32dp" android:layout_marginStart="32dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.303"/>
+    <Button
+            android:text="Cerrar"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnCerrarAbout" app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/textView6" app:layout_constraintVertical_bias="0.303"/>
 </android.support.constraint.ConstraintLayout>

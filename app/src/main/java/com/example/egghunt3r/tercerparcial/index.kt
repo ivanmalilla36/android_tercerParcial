@@ -1,17 +1,22 @@
 package com.example.egghunt3r.tercerparcial
 
 import android.content.Intent
+import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AlertDialog
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.RadioButton
 import android.widget.Toast
+import com.example.egghunt3r.tercerparcial.R.id.radioGRupoB
 import com.google.zxing.integration.android.IntentIntegrator
+import kotlinx.android.synthetic.main.about.view.*
 import kotlinx.android.synthetic.main.activity_index.*
+import kotlinx.android.synthetic.main.metodo_pagos.*
 import kotlinx.android.synthetic.main.metodo_pagos.view.*
 import org.json.JSONException
-import org.json.JSONObject
 
 class index : AppCompatActivity() {
 
@@ -39,7 +44,26 @@ class index : AppCompatActivity() {
             val mBuilder = AlertDialog.Builder(this).setView(myDialog)
             val mAlertDialog = mBuilder.show()
 
-            myDialog.btnCerrar.setOnClickListener {
+            var  metodoPago:String = ""
+            var pagar: String
+
+            mAlertDialog.radioGRupoB.setOnCheckedChangeListener { group, checkedId ->
+                if(R.id.radioPaypal == checkedId){
+                    metodoPago = "Has seleccionado Efectivo"
+                    pagar = "Efectivo"
+                }
+                if(R.id.radioCredito == checkedId){
+                    metodoPago = "Has seleccionado Tarjeta"
+                    pagar = "Tarjeta"
+                }
+                if(R.id.radioDebito == checkedId){
+                    metodoPago = "Has seleccionado Transferencia"
+                    pagar = "Transferencia"
+                }
+                Toast.makeText(this,metodoPago,Toast.LENGTH_SHORT).show()
+            }
+
+            myDialog.btnCerrarMetodos.setOnClickListener {
                 mAlertDialog.dismiss()
             }
         }
@@ -78,7 +102,18 @@ class index : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
         R.id.action_about -> {
-            msgShow("Search")
+            val myDialog = layoutInflater.inflate(R.layout.about, null)
+            val mBuilder = AlertDialog.Builder(this).setView(myDialog)
+            val mAlertDialog = mBuilder.show()
+
+            myDialog.btnCerrarAbout.setOnClickListener {
+                mAlertDialog.dismiss()
+            }
+
+            myDialog.btnRepo.setOnClickListener {
+                val i = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/ivanmalilla36/android_tercerParcial.git"))
+                startActivity(i)
+            }
             true
         }
         R.id.action_session -> {
