@@ -4,19 +4,20 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.app.AlertDialog
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.RadioButton
+import android.widget.LinearLayout
 import android.widget.Toast
-import com.example.egghunt3r.tercerparcial.R.id.radioGRupoB
 import com.google.zxing.integration.android.IntentIntegrator
 import kotlinx.android.synthetic.main.about.view.*
 import kotlinx.android.synthetic.main.activity_index.*
 import kotlinx.android.synthetic.main.metodo_pagos.*
 import kotlinx.android.synthetic.main.metodo_pagos.view.*
 import org.json.JSONException
+import org.json.JSONObject
 
 class index : AppCompatActivity() {
 
@@ -36,7 +37,8 @@ class index : AppCompatActivity() {
         }
 
         btnVehiculos.setOnClickListener {
-
+            val intent = Intent(this, vehiculos_activity::class.java)
+            startActivity(intent)
         }
 
         btnMetodos.setOnClickListener {
@@ -79,13 +81,11 @@ class index : AppCompatActivity() {
                 // If QRCode contains data.
                 try {
                     // Converting the data to json format
-//                    val obj = JSONObject(result.contents)
-//                    nombre.setText(obj.getString("nombre"))
-//                    descripcion.setText(obj.getString("descripcion"))
-//                    imagenURL.setText(obj.getString("imagenUrl"))
-//                    latitud.setText(obj.getString("latitud"))
-//                    longitud.setText(obj.getString("latitud"))
-//                    telefono.setText(obj.getString("telefono"))
+                    val obj = JSONObject(result.contents)
+                    editMarca.setText(obj.getString("Marca"))
+                    editModelo.setText(obj.getString("Modelo"))
+                    editAño.setText(obj.getString("Año"))
+                    editAdeudo.setText(obj.getString("Adeudo"))
 
                 } catch (e: JSONException) {
                     e.printStackTrace()

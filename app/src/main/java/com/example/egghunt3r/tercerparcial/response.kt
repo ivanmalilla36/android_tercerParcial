@@ -1,7 +1,6 @@
 package com.example.egghunt3r.tercerparcial
 
-data class VehiculoResult(val vehiculos: List<Item>)  // favoristos es la llave por la cual va a buscar en el arreglo de json
-
+data class VehiculoResult(val vehiculo: List<Item>)
 data class Item (
     val id: String?,
     val Marca: String?,
