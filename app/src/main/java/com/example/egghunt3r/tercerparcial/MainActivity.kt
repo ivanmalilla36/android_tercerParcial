@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
                         } else {
                             // Sign in: fail
                             //Log.e(TAG, "signIn: Fail!", task.exception)
-                            Toast.makeText(this,"Login Fail",Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this,"Usuario y/o contraseña incorrectos",Toast.LENGTH_SHORT).show()
                         }
                     }
             }else{
